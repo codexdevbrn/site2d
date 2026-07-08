@@ -1,17 +1,17 @@
 :root {
-    /* Color Palette */
+    /* Color Palette - Dourado Premium */
     --bg-dark: #0f1115;
     --bg-darker: #08090a;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-card-hover: rgba(255, 255, 255, 0.08);
+    --bg-card: rgba(245, 166, 35, 0.04);
+    --bg-card-hover: rgba(245, 166, 35, 0.1);
     --text-primary: #ffffff;
     --text-secondary: #a1a1aa;
-    --accent-color: #ffffff; /* White to match the logo */
-    --accent-glow: rgba(255, 255, 255, 0.15);
+    --accent-color: #F5A623; /* Dourado Premium */
+    --accent-glow: rgba(245, 166, 35, 0.15);
     
     /* Layout */
     --nav-height: 80px;
-    --container-width: 1200px;
+    --container-width: 1440px;
     
     /* Typography */
     --font-main: 'Inter', sans-serif;
@@ -67,6 +67,7 @@ ul {
 
 .bg-alt {
     background-color: var(--bg-darker);
+    background-image: radial-gradient(circle at 50% 0%, rgba(245, 166, 35, 0.05) 0%, transparent 60%);
 }
 
 .highlight {
@@ -106,8 +107,8 @@ ul {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
-    background-color: #f0f0f0;
+    box-shadow: 0 6px 20px rgba(245, 166, 35, 0.3);
+    background-color: #ffb945;
 }
 
 .btn-secondary {
@@ -799,6 +800,70 @@ ul {
     align-self: flex-start;
 }
 
+/* Testimonials Section */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.testimonial-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    transition: var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    background: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    position: relative;
+    line-height: 1.8;
+}
+
+.testimonial-quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-family: serif;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.testimonial-author-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.testimonial-author-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
 .tax-list {
     list-style: none;
     padding: 0;
@@ -1128,7 +1193,7 @@ ul {
 
 .carousel-track {
     display: flex;
-    width: calc(250px * 24); /* 12 logos * 2 sets */
+    width: max-content;
     animation: scroll 60s linear infinite;
     align-items: center;
 }
@@ -1154,8 +1219,8 @@ ul {
 }
 
 .client-logo img {
-    max-width: 100%;
-    max-height: 80px;
+    width: 160px;
+    height: 80px;
     object-fit: contain;
     transition: var(--transition-fast);
 }
@@ -1165,15 +1230,11 @@ ul {
 }
 
 .client-logo:hover img {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.05);
 }
 
 .client-logo img.motobras-logo {
-    transform: scale(1.6);
-}
-
-.client-logo:hover img.motobras-logo {
-    transform: scale(1.6) translateY(-5px);
+    /* Optional: custom adjustments if absolutely needed, but keeping it unset for uniformity */
 }
 
 .clientes-note {
@@ -1185,8 +1246,8 @@ ul {
 }
 
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-250px * 12)); }
+    0% { transform: translateX(calc(-250px * 15 + 50vw - 125px)); }
+    100% { transform: translateX(calc(-250px * 30 + 50vw - 125px)); }
 }
 
 /* Contact Section */
@@ -1331,20 +1392,30 @@ ul {
 
 .footer-container {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
     margin-bottom: 40px;
 }
 
-.footer-logo img {
-    height: 60px;
-    margin-bottom: 1rem;
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.footer-logo p {
+.footer-logo img {
+    height: 140px;
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 0;
+}
+
+.footer-desc {
     color: var(--text-secondary);
     font-size: 0.9rem;
     max-width: 300px;
+    margin-top: 1.5rem;
 }
 
 .footer-links h3,
@@ -1369,17 +1440,24 @@ ul {
     color: var(--accent-color);
 }
 
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .social-icons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+    justify-content: center;
 }
 
 .social-icons a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     color: var(--text-primary);
@@ -1392,9 +1470,9 @@ ul {
     transform: translateY(-3px);
 }
 
-.social-icons i {
-    width: 18px;
-    height: 18px;
+.social-icons svg {
+    width: 22px;
+    height: 22px;
 }
 
 .footer-bottom {
@@ -1437,7 +1515,15 @@ ul {
         );
     }
     .footer-container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+    .footer-links {
+        align-items: center;
+    }
+    .footer-desc {
+        text-align: center;
     }
 }
 
@@ -1493,7 +1579,6 @@ ul {
     }
     
     .footer-container {
-        grid-template-columns: 1fr;
         gap: 2rem;
     }
 }

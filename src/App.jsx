@@ -129,6 +129,9 @@ function App() {
   const currentYear = new Date().getFullYear();
 
   const clients = [
+    { name: "SYL", img: "/syl pastilhas.avif" },
+    { name: "Petronas", img: "/petronas.png" },
+    { name: "Ipiranga", img: "/ipiranga-seeklogo.svg" },
     { name: "Lupi", img: "/clientes/lupi.png" },
     { name: "Pecita", img: "/clientes/Pecita.png" },
     { name: "Grupo Crac", img: "/clientes/gupocrac.png" },
@@ -199,10 +202,11 @@ function App() {
         <div className="hero-background"></div>
         <div className="container hero-container">
           <div className="hero-content">
-            <h1 className="hero-title">Impulsionando Seus Resultados com <span className="highlight">Estratégia e Inteligência</span></h1>
+            <h1 className="hero-title">Inteligência Fiscal, Tributária e <span className="highlight">Gestão Especializada para o Setor Automotivo</span></h1>
             <p className="hero-subtitle">
-            A 2D Consultores tem mais de 15 anos de mercado e é especialista em Consultoria Fiscal, Tributária e Gestão Empresarial para os setores Automotivo e Supermercadista.
-          </p>  <div className="hero-actions">
+            Com mais de 16 anos de mercado, somos seu Parceiro em Consultoria. Oferecemos três frentes de atuação integradas: o fiscal que protege, a gestão que organiza e a tecnologia que executa no automático.
+            </p>
+            <div className="hero-actions">
               <a href="#servicos" className="btn btn-primary">Nossos Serviços</a>
               <a href="#contato" className="btn btn-secondary">Fale com um Consultor</a>
             </div>
@@ -210,26 +214,27 @@ function App() {
         </div>
       </section>
 
-      {/* Sobre Section */}
-      <section className="section about-section" id="sobre" style={{ backgroundImage: "url('/Marco Flores.webp')" }}>
+      {/* Sobre / Marco Flores Section */}
+      <section className="section about-section" id="sobre" style={{ backgroundImage: "url('/Marco Flores.webp')", backgroundPosition: "center top" }}>
         <div className="about-overlay"></div>
         <div className="container about-container">
           <div className="about-text">
-            <span className="section-tag">Sobre a 2D Consultores</span>
-            <h2 className="section-title">Parceria que Gera <span className="highlight">Valor</span></h2>
-            <p>A 2D Consultores é uma empresa focada em transformar a realidade de negócios complexos. Com atuação de destaque nos segmentos de reposição automotiva e supermercadista, compreendemos profundamente os desafios e oportunidades dessas indústrias.</p>
-            <p>Nossa missão é entregar soluções personalizadas que otimizem os recursos financeiros, garantam conformidade fiscal e elevem o patamar de gestão da sua empresa, garantindo um crescimento sustentável e seguro no longo prazo.</p>
+            <span className="section-tag">Quem Está por Trás da 2D Consultores</span>
+            <h2 className="section-title">Marco <span className="highlight">Flores</span></h2>
+            <p><strong>Fundador, Estrategista de Negócios e Especialista em Inteligência Tributária.</strong></p>
+            <p>"Mais do que um relatório, entrego uma ferramenta de decisão. Junto a ela, trago milhares de horas de mesa que me deram a bagagem necessária para gerar resultados em qualquer negócio."</p>
+            <p>Com mais de 21 anos de experiência prática na liderança das maiores empresas de reposição automotiva do Rio de Janeiro, Marco Flores traz a vivência real do setor para o seu negócio. Integrou o conselho da maior rede de autopeças da América Latina e contribuiu ativamente no desenho da automação tributária junto à SEFAZ RJ. É também colunista do Jornal Brasil.</p>
 
             <div className="stats-grid">
               <div className="stat-card">
                 <TrendingUp className="stat-icon" />
-                <h3>Crescimento</h3>
-                <p>Foco em resultados</p>
+                <h3>Resultados</h3>
+                <p>Foco em inteligência tributária</p>
               </div>
               <div className="stat-card">
                 <ShieldCheck className="stat-icon" />
-                <h3>Segurança</h3>
-                <p>Tranquilidade fiscal</p>
+                <h3>Experiência</h3>
+                <p>+21 anos no mercado</p>
               </div>
             </div>
           </div>
@@ -250,24 +255,24 @@ function App() {
               <div className="service-icon-wrapper">
                 <FileText className="service-icon" />
               </div>
-              <h3 className="service-title">Consultoria Fiscal</h3>
-              <p className="service-description">Planejamento, revisão e auditoria para garantir a correta apuração de impostos e entrega de obrigações acessórias, mitigando riscos de autuações e multas.</p>
+              <h3 className="service-title">Consultoria Fiscal e Tributária</h3>
+              <p className="service-description">Realizamos a recuperação de créditos tributários acumulados, desenvolvemos planejamento fiscal focado no seu segmento e encontramos onde o seu dinheiro está preso.</p>
             </div>
 
             <div className="service-card">
               <div className="service-icon-wrapper">
                 <Calculator className="service-icon" />
               </div>
-              <h3 className="service-title">Consultoria Tributária</h3>
-              <p className="service-description">Análise estratégica de enquadramentos, recuperação de créditos e otimização da carga tributária visando melhorar o fluxo de caixa da sua empresa.</p>
+              <h3 className="service-title">Gestão Empresarial</h3>
+              <p className="service-description">Diagnóstico completo de toda a sua operação logística e comercial, mapeamento de gargalos e foco total em redução de custos operacionais e ganho de tempo.</p>
             </div>
 
             <div className="service-card">
               <div className="service-icon-wrapper">
                 <PieChart className="service-icon" />
               </div>
-              <h3 className="service-title">Gestão Empresarial</h3>
-              <p className="service-description">Desenvolvimento de indicadores de performance, estruturação de processos e apoio na tomada de decisão para escalar o negócio de forma organizada.</p>
+              <h3 className="service-title">Soluções Digitais (Exclusividade 2D)</h3>
+              <p className="service-description">Apoiamos a sua tomada de decisão saindo das planilhas manuais. Apresentamos ao mercado automotivo a Plataforma 2D Price para alavancar financeiramente autopeças.</p>
             </div>
           </div>
         </div>
@@ -396,10 +401,10 @@ function App() {
               <ShieldCheck className="tax-icon text-accent" size={48} />
               <h3 className="tax-title">Sua empresa preparada para o futuro</h3>
               <p className="tax-text">
-                A aprovação da Reforma Tributária do Consumo marca a maior mudança no sistema fiscal brasileiro das últimas décadas. Com a substituição de cinco tributos atuais por um modelo de IVA Dual, as regras do jogo vão mudar completamente.
+                O sistema tributário do Brasil está mudando drasticamente. Quem deixar para se organizar apenas no momento da cobrança efetiva sentirá o prejuízo direto no caixa. A 2D Consultores acompanha essa transição passo a passo com você, revisando classificações e ajustando sistemas para evitar autuações surpresa.
               </p>
               <p className="tax-text">
-                <strong>Não espere o prazo apertar.</strong> A equipe de especialistas da 2D Consultores já mapeou os cenários da transição. Estamos prontos para reestruturar seu planejamento tributário, adaptar suas estratégias de precificação e garantir que você aproveite as oportunidades legais para otimizar a carga tributária com total segurança jurídica.
+                <strong>Não espere o prazo apertar.</strong> A equipe de especialistas da 2D Consultores já mapeou os cenários da transição. Estamos prontos para reestruturar seu planejamento tributário e garantir que você aproveite as oportunidades legais para otimizar a carga tributária com total segurança jurídica.
               </p>
               <a href="#contato" className="btn btn-primary tax-btn">Fale com um Especialista Agora</a>
             </div>
@@ -407,22 +412,19 @@ function App() {
             {/* Right side: Summary of the reform */}
             <div className="tax-reform-card tax-reform-card--secondary">
               <FileText className="tax-icon text-muted" size={48} />
-              <h3 className="tax-title">O que muda com a Reforma?</h3>
+              <h3 className="tax-title">O Cronograma da Transição</h3>
               <ul className="tax-list">
                 <li>
-                  <strong>Simplificação Extrema:</strong> PIS, COFINS e IPI serão substituídos pela CBS (federal). O ICMS e o ISS darão lugar ao IBS (estadual/municipal).
+                  <strong>2026 (Fase de Testes):</strong> Toda nota fiscal emitida no país já apresenta o CBS (0,9%) e o IBS (0,1%) para fins de validação e exigência de classificação correta, ainda sem cobrança efetiva.
                 </li>
                 <li>
-                  <strong>IVA Dual:</strong> Modelo não cumulativo, em que o imposto incide apenas sobre o valor agregado em cada etapa produtiva, acabando com o "imposto sobre imposto".
+                  <strong>2027 (Início da Cobrança Real):</strong> Os novos impostos entram em vigor e os antigos tributos PIS, Cofins e IPI começam a sair de cena.
                 </li>
                 <li>
-                  <strong>Imposto Seletivo (IS):</strong> Novo tributo específico criado para desestimular o consumo de bens prejudiciais à saúde e ao meio ambiente.
+                  <strong>2029 a 2032 (Transição Gradual):</strong> O ICMS e o ISS são substituídos gradualmente pelo IBS, ano após ano.
                 </li>
                 <li>
-                  <strong>Cobrança no Destino:</strong> O recolhimento passará a ocorrer no local de consumo final do produto/serviço, e não mais no estado/município de origem.
-                </li>
-                <li>
-                  <strong>Transparência:</strong> O consumidor saberá exatamente quanto imposto está embutido no valor final da nota.
+                  <strong>2033 (Sistema Integral):</strong> O novo modelo tributário passa a valer de forma unificada e cheia em todo o território nacional.
                 </li>
               </ul>
             </div>
@@ -539,8 +541,9 @@ function App() {
         </div>
       </section>
 
+
       {/* Segmentos Section */}
-      <section className="section" id="segmentos">
+      <section className="section bg-alt" id="segmentos">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Especialização</span>
@@ -584,8 +587,8 @@ function App() {
 
           <div className="carousel-container">
             <div className="carousel-track">
-              {/* Render client logos twice for infinite scroll effect */}
-              {[...clients, ...clients].map((client, index) => (
+              {/* Render client logos 3 times for center-start infinite scroll effect */}
+              {[...clients, ...clients, ...clients].map((client, index) => (
                 <div className="client-logo" key={index} aria-hidden={index >= clients.length}>
                   {client.img ? (
                     <img src={client.img} alt={client.name} title={client.name} className={client.className || ""} />
@@ -597,6 +600,49 @@ function App() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Depoimentos Section */}
+      <section className="section" id="depoimentos">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Resultados Reais</span>
+            <h2 className="section-title">O que dizem nossos <span className="highlight">Clientes</span></h2>
+            <p className="section-description">Ferramentas e suporte que mudam a história das empresas.</p>
+          </div>
+
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <p className="testimonial-quote">Desde o início, tive o privilégio de acompanhar a Plataforma 2D. Essa ferramenta vem mudando a história das empresas que fazem parte desse projeto.</p>
+              <div className="testimonial-author">
+                <div className="testimonial-author-info">
+                  <h4>Fernando Fernandes</h4>
+                  <p>Golfinho Moto Peças The Best</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="testimonial-card">
+              <p className="testimonial-quote">Utilizar a Plataforma 2D tem sido excelente nas tomadas de decisão. Gestão com informação é tudo. É possível corrigir dados fiscais dentro do cadastro dos itens, evitando risco tributário.</p>
+              <div className="testimonial-author">
+                <div className="testimonial-author-info">
+                  <h4>Orni Barbosa</h4>
+                  <p>IBAD Autopeças</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="testimonial-card">
+              <p className="testimonial-quote">Desde que passamos a contar com o suporte da 2D Consultores, nossa operação ganhou muito mais segurança e eficiência. Um investimento que se paga rápido.</p>
+              <div className="testimonial-author">
+                <div className="testimonial-author-info">
+                  <h4>Alfredo Corapi</h4>
+                  <p>Altese Autopeças</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -614,21 +660,21 @@ function App() {
                   <Mail className="contact-icon" />
                   <div>
                     <h4>Email</h4>
-                    <a href="mailto:contato@2dconsultores.com.br">contato@2dconsultores.com.br</a>
+                    <a href="mailto:farley@2dconsultores.com.br">farley@2dconsultores.com.br</a>
                   </div>
                 </div>
                 <div className="contact-method">
                   <Phone className="contact-icon" />
                   <div>
                     <h4>Telefone / WhatsApp</h4>
-                    <a href="tel:+550000000000">+55 (00) 00000-0000</a>
+                    <a href="tel:+5521984157985">+55 21 98415-7985</a>
                   </div>
                 </div>
                 <div className="contact-method">
                   <MapPin className="contact-icon" />
                   <div>
                     <h4>Endereço</h4>
-                    <p>Av. Exemplo Comercial, 1000 - Rio de Janeiro, RJ</p>
+                    <p>Rod. Washington Luiz, 2500 - 2550 - Parque Duque, Duque de Caxias - RJ, 25085-009</p>
                   </div>
                 </div>
               </div>
@@ -721,6 +767,17 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="container footer-container">
+          <div className="footer-links">
+            <h3>Links Úteis</h3>
+            <ul>
+              <li><a href="#home">Início</a></li>
+              <li><a href="#sobre">Sobre Nós</a></li>
+              <li><a href="#servicos">Serviços</a></li>
+              <li><a href="#segmentos">Segmentos</a></li>
+              <li><a href="https://pregao.plataforma2d.com.br/" target="_blank" rel="noopener noreferrer">Pregão Mercadológico</a></li>
+            </ul>
+            <p className="footer-desc">Especialistas em Consultoria Fiscal, Tributária e Gestão Empresarial.</p>
+          </div>
           <div className="footer-logo">
             <img
               src="/logo.png"
@@ -731,17 +788,6 @@ function App() {
               }}
             />
             <span className="logo-text" style={{ display: 'none' }}>2D CONSULTORES</span>
-            <p>Especialistas em Consultoria Fiscal, Tributária e Gestão Empresarial.</p>
-          </div>
-          <div className="footer-links">
-            <h3>Links Úteis</h3>
-            <ul>
-              <li><a href="#home">Início</a></li>
-              <li><a href="#sobre">Sobre Nós</a></li>
-              <li><a href="#servicos">Serviços</a></li>
-              <li><a href="#segmentos">Segmentos</a></li>
-              <li><a href="https://pregao.plataforma2d.com.br/" target="_blank" rel="noopener noreferrer">Pregão Mercadológico</a></li>
-            </ul>
           </div>
           <div className="footer-social">
             <h3>Redes Sociais</h3>
