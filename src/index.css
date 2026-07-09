@@ -384,7 +384,7 @@ ul {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -1246,8 +1246,8 @@ ul {
 }
 
 @keyframes scroll {
-    0% { transform: translateX(calc(-250px * 15 + 50vw - 125px)); }
-    100% { transform: translateX(calc(-250px * 30 + 50vw - 125px)); }
+    0% { transform: translateX(calc(-250px * var(--count) + 50vw - 125px)); }
+    100% { transform: translateX(calc(-250px * (var(--count) * 2) + 50vw - 125px)); }
 }
 
 /* Contact Section */
@@ -1524,6 +1524,8 @@ ul {
     }
     .footer-desc {
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -1580,5 +1582,154 @@ ul {
     
     .footer-container {
         gap: 2rem;
+    }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.4);
+    color: #FFF;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Midia Page Styles */
+.media-highlight-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: stretch;
+    margin-bottom: 4rem;
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.media-history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    .media-highlight-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .media-history-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+}
+
+/* Methodology Timeline Styles */
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    position: relative;
+    padding-top: 3rem;
+}
+
+@media (min-width: 993px) {
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 55px; /* aligns with the center of the timeline icon */
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent-color) 0%, rgba(255,255,255,0.1) 100%);
+        z-index: 0;
+    }
+}
+
+.timeline-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--bg-card);
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-step:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.timeline-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--bg-dark);
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: -3.5rem;
+}
+
+.timeline-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: #FFF;
+}
+
+.timeline-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+    .timeline {
+        padding-top: 2rem;
+        gap: 4rem;
     }
 }
