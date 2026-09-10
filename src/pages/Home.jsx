@@ -304,6 +304,17 @@ export default function Home() {
           <div ref={productsGridRef} className={`products-grid ${expandedProduct ? 'expanded-mode' : ''}`}>
             {[
               {
+                id: 'apura',
+                title: 'Apura',
+                icon: '/logo_apura8.svg',
+                iconClass: 'product-icon product-icon-white',
+                shortDesc: 'Inteligência que apura, resultados que protegem: conduza as operações e análises fiscais da sua empresa em um ambiente seguro e centralizado.',
+                longDesc: 'A APURA é a ferramenta de inteligência fiscal da 2D Consultores, criada para reunir em um único ambiente protegido todas as operações e análises tributárias da sua empresa. Chega de dados espalhados entre planilhas e sistemas paralelos: com a APURA, sua equipe apura informações fiscais com precisão, identifica inconsistências antes que se transformem em autuações e converte dados em decisões estratégicas seguras. Mais do que controle, é proteção — inteligência que apura, resultados que protegem o seu negócio enquanto ele cresce.',
+                buttonText: 'Conheça a ferramenta →',
+                highlight: true,
+                isNew: true
+              },
+              {
                 id: 'plataforma2d',
                 title: 'Plataforma 2D',
                 icon: '/plataforma-2d-2.webp',

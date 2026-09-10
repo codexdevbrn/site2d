@@ -4,6 +4,16 @@ import '../index.css';
 
 const videos = [
   {
+    id: "S3ZOMWf6lNQ",
+    title: "REFORMA TRIBUTÁRIA - O IMPACTO NO SETOR AUTOMOTIVO - Podcast Peça & Mecânico #05",
+    date: "2026-09-03"
+  },
+  {
+    id: "wHxpQyVo7zc",
+    title: "O que mudou na Reforma Tributária em agosto? | Marco Flores | ATMCAST #137",
+    date: "2026-08-06"
+  },
+  {
     id: "bays4eTXeBI",
     title: "ATMCAST ep#115 | Marco Flores | Reforma Tributária no Aftermarket",
     date: "2026-03-06"
