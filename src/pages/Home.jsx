@@ -644,7 +644,7 @@ export default function Home() {
               <div className="testimonial-author">
                 <div className="testimonial-author-info">
                   <h4>Fernando Fernandes</h4>
-                  <p>Golfinho Moto Peças The Best</p>
+                  <p>Golfinho Moto Peças</p>
                 </div>
               </div>
             </div>

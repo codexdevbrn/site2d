@@ -830,18 +830,17 @@ ul {
     font-style: italic;
     color: var(--text-secondary);
     margin-bottom: 2rem;
-    position: relative;
     line-height: 1.8;
 }
 
 .testimonial-quote::before {
     content: '"';
-    font-size: 4rem;
-    color: rgba(255, 255, 255, 0.1);
-    position: absolute;
-    top: -20px;
-    left: -10px;
+    font-size: 2rem;
+    line-height: 0;
+    color: rgba(255, 255, 255, 0.25);
     font-family: serif;
+    margin-right: 0.35rem;
+    vertical-align: -0.35rem;
 }
 
 .testimonial-author {

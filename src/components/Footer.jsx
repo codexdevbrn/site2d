@@ -1,6 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (e, hash) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/' + hash);
+    } else {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', hash);
+      }
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="container footer-container">
@@ -8,9 +24,9 @@ export default function Footer() {
           <h3>Links Úteis</h3>
           <ul>
             <li><Link to="/" onClick={() => window.scrollTo(0,0)}>Início</Link></li>
-            <li><Link to="/#sobre">Sobre Nós</Link></li>
-            <li><Link to="/#servicos">Serviços</Link></li>
-            <li><Link to="/#segmentos">Segmentos</Link></li>
+            <li><a href="#sobre" onClick={(e) => handleNavClick(e, '#sobre')}>Sobre Nós</a></li>
+            <li><a href="#servicos" onClick={(e) => handleNavClick(e, '#servicos')}>Serviços</a></li>
+            <li><a href="#segmentos" onClick={(e) => handleNavClick(e, '#segmentos')}>Segmentos</a></li>
             <li><Link to="/midia" onClick={() => window.scrollTo(0,0)}>Na Mídia</Link></li>
             <li><a href="https://pregao.plataforma2d.com.br/" target="_blank" rel="noopener noreferrer">Pregão Mercadológico</a></li>
           </ul>
