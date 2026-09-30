@@ -73,7 +73,7 @@ export default function Midia() {
   };
 
   const reelsPageSize = isMobile ? 6 : 10;
-  const videosPageSize = isMobile ? 6 : 4;
+  const videosPageSize = 4;
 
   const otherVideos = videos.filter((v) => !(activeItem?.type === 'video' && activeItem.id === v.id));
   const otherReels = reels.filter((r) => !(activeItem?.type === 'reel' && activeItem.key === r.key));
