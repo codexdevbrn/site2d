@@ -11,7 +11,8 @@ export default function Midia() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [reelsVisible, setReelsVisible] = useState(6);
+  const [reelsPage, setReelsPage] = useState(1);
+  const [videosPage, setVideosPage] = useState(1);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -71,10 +72,14 @@ export default function Midia() {
     return new Date(dateString).toLocaleDateString('pt-BR', options);
   };
 
+  const pageSize = isMobile ? 6 : 10;
+
   const otherVideos = videos.filter((v) => !(activeItem?.type === 'video' && activeItem.id === v.id));
   const otherReels = reels.filter((r) => !(activeItem?.type === 'reel' && activeItem.key === r.key));
-  const visibleReels = isMobile ? otherReels.slice(0, reelsVisible) : otherReels;
-  const hasMoreReels = isMobile && reelsVisible < otherReels.length;
+  const visibleReels = otherReels.slice(0, reelsPage * pageSize);
+  const hasMoreReels = visibleReels.length < otherReels.length;
+  const visibleVideos = otherVideos.slice(0, videosPage * pageSize);
+  const hasMoreVideos = visibleVideos.length < otherVideos.length;
 
   return (
     <div className="section" style={{ minHeight: '80vh', paddingTop: '120px' }}>
@@ -173,7 +178,7 @@ export default function Midia() {
                     <h3 style={{ marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1rem' }}>
                       Reels
                     </h3>
-                    <div className={`media-reels-grid${isMobile ? '' : ' media-scroll-area'}`}>
+                    <div className="media-reels-grid">
                       {visibleReels.map((reel) => {
                         const thumbnail = getReelThumbnail(reel.url);
                         return (
@@ -264,7 +269,7 @@ export default function Midia() {
                       <button
                         type="button"
                         className="btn btn-outline"
-                        onClick={() => setReelsVisible((n) => n + 6)}
+                        onClick={() => setReelsPage((n) => n + 1)}
                         style={{ display: 'block', margin: '1.25rem auto 0', padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
                       >
                         Mostrar mais
@@ -278,8 +283,8 @@ export default function Midia() {
                     <h3 style={{ marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1rem' }}>
                       Mais Participações
                     </h3>
-                    <div className="media-history-grid media-scroll-area">
-                      {otherVideos.map((video) => (
+                    <div className="media-history-grid">
+                      {visibleVideos.map((video) => (
                         <div
                           key={video.id}
                           onClick={() => selectItem({ type: 'video', ...video })}
@@ -321,6 +326,16 @@ export default function Midia() {
                         </div>
                       ))}
                     </div>
+                    {hasMoreVideos && (
+                      <button
+                        type="button"
+                        className="btn btn-outline"
+                        onClick={() => setVideosPage((n) => n + 1)}
+                        style={{ display: 'block', margin: '1.25rem auto 0', padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
+                      >
+                        Mostrar mais
+                      </button>
+                    )}
                   </div>
                 )}
               </div>
