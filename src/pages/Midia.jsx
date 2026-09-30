@@ -266,15 +266,32 @@ export default function Midia() {
                         );
                       })}
                     </div>
-                    {hasMoreReels && (
-                      <button
-                        type="button"
-                        className="btn btn-outline"
-                        onClick={() => setReelsPage((n) => n + 1)}
-                        style={{ display: 'block', margin: '1.25rem auto 0', padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
-                      >
-                        Mostrar mais
-                      </button>
+                    {(hasMoreReels || reelsPage > 1) && (
+                      <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginTop: '1.25rem' }}>
+                        {hasMoreReels && (
+                          <button
+                            type="button"
+                            className="btn btn-outline"
+                            onClick={() => setReelsPage((n) => n + 1)}
+                            style={{ padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
+                          >
+                            Mostrar mais
+                          </button>
+                        )}
+                        {reelsPage > 1 && (
+                          <button
+                            type="button"
+                            className="btn btn-outline"
+                            onClick={() => {
+                              setReelsPage(1);
+                              window.scrollTo({ top: 100, behavior: 'smooth' });
+                            }}
+                            style={{ padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
+                          >
+                            Mostrar menos
+                          </button>
+                        )}
+                      </div>
                     )}
                   </div>
                 )}
@@ -327,15 +344,32 @@ export default function Midia() {
                         </div>
                       ))}
                     </div>
-                    {hasMoreVideos && (
-                      <button
-                        type="button"
-                        className="btn btn-outline"
-                        onClick={() => setVideosPage((n) => n + 1)}
-                        style={{ display: 'block', margin: '1.25rem auto 0', padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
-                      >
-                        Mostrar mais
-                      </button>
+                    {(hasMoreVideos || videosPage > 1) && (
+                      <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginTop: '1.25rem' }}>
+                        {hasMoreVideos && (
+                          <button
+                            type="button"
+                            className="btn btn-outline"
+                            onClick={() => setVideosPage((n) => n + 1)}
+                            style={{ padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
+                          >
+                            Mostrar mais
+                          </button>
+                        )}
+                        {videosPage > 1 && (
+                          <button
+                            type="button"
+                            className="btn btn-outline"
+                            onClick={() => {
+                              setVideosPage(1);
+                              window.scrollTo({ top: 100, behavior: 'smooth' });
+                            }}
+                            style={{ padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
+                          >
+                            Mostrar menos
+                          </button>
+                        )}
+                      </div>
                     )}
                   </div>
                 )}
