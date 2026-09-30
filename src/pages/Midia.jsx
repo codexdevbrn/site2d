@@ -10,9 +10,19 @@ export default function Midia() {
   const [activeItem, setActiveItem] = useState(null); // { type: 'video', ...video } | { type: 'reel', ...reel }
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [reelsVisible, setReelsVisible] = useState(6);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mql.matches);
+    const handler = (e) => setIsMobile(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
   }, []);
 
   useEffect(() => {
@@ -63,6 +73,8 @@ export default function Midia() {
 
   const otherVideos = videos.filter((v) => !(activeItem?.type === 'video' && activeItem.id === v.id));
   const otherReels = reels.filter((r) => !(activeItem?.type === 'reel' && activeItem.key === r.key));
+  const visibleReels = isMobile ? otherReels.slice(0, reelsVisible) : otherReels;
+  const hasMoreReels = isMobile && reelsVisible < otherReels.length;
 
   return (
     <div className="section" style={{ minHeight: '80vh', paddingTop: '120px' }}>
@@ -161,8 +173,8 @@ export default function Midia() {
                     <h3 style={{ marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1rem' }}>
                       Reels
                     </h3>
-                    <div className="media-reels-grid media-scroll-area">
-                      {otherReels.map((reel) => {
+                    <div className={`media-reels-grid${isMobile ? '' : ' media-scroll-area'}`}>
+                      {visibleReels.map((reel) => {
                         const thumbnail = getReelThumbnail(reel.url);
                         return (
                           <button
@@ -248,6 +260,16 @@ export default function Midia() {
                         );
                       })}
                     </div>
+                    {hasMoreReels && (
+                      <button
+                        type="button"
+                        className="btn btn-outline"
+                        onClick={() => setReelsVisible((n) => n + 6)}
+                        style={{ display: 'block', margin: '1.25rem auto 0', padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
+                      >
+                        Mostrar mais
+                      </button>
+                    )}
                   </div>
                 )}
 
