@@ -62,7 +62,7 @@ export default function Home() {
     const fetchEvents = async () => {
       try {
         const apiKey = import.meta.env.VITE_GCAL_API_KEY || 'AIzaSyAlPHKwLrz-9v9FVnLHZ9MgZNNsCFgDDZ4';
-        const calendarId = import.meta.env.VITE_GCAL_CALENDAR_ID || 'brunoduarte.inf@gmail.com';
+        const calendarId = import.meta.env.VITE_GCAL_CALENDAR_ID || 'tecnologia@2dconsultores.com.br';
         
         const now = new Date();
         now.setHours(0,0,0,0);
@@ -78,19 +78,34 @@ export default function Home() {
         }
         
         const data = await response.json();
-        
+
+        // Eventos de dia inteiro vêm como "YYYY-MM-DD" (sem hora). `new Date("YYYY-MM-DD")`
+        // é interpretado como meia-noite UTC, o que "voltava" um dia ao converter para o
+        // horário de Brasília (UTC-3). Por isso construímos a data a partir dos componentes
+        // locais em vez de deixar o Date interpretar a string como UTC.
+        const parseEventDate = (dateStr) => {
+          if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+            const [year, month, day] = dateStr.split('-').map(Number);
+            return new Date(year, month - 1, day);
+          }
+          return new Date(dateStr);
+        };
+
         // Mapeia os eventos retornados pela API
         const upcoming = (data.items || []).map(item => {
           // Eventos de dia inteiro (all-day) retornam `start.date`, eventos com hora retornam `start.dateTime`
           const startDateStr = item.start.dateTime || item.start.date;
           const endDateStr = item.end.dateTime || item.end.date;
-          
+
           return {
             title: item.summary,
             description: item.description,
             location: item.location,
-            startDate: new Date(startDateStr),
-            endDate: new Date(endDateStr)
+            // Eventos de dia inteiro não têm `dateTime`, só `date`. Guardamos essa
+            // distinção para não confundir "dia inteiro" com um evento real às 00:00.
+            isAllDay: !item.start.dateTime,
+            startDate: parseEventDate(startDateStr),
+            endDate: parseEventDate(endDateStr)
           };
         });
           
@@ -514,8 +529,10 @@ export default function Home() {
                         <h3 className="event-title">{evt.title || 'Evento da 2D'}</h3>
                         <div className="event-meta">
                           <span className="event-meta-item">
-                            <Clock size={15} /> 
-                            {evt.startDate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+                            <Clock size={15} />
+                            {evt.isAllDay
+                              ? 'Dia inteiro'
+                              : evt.startDate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                           </span>
                           {evt.location && (
                             <span className="event-meta-item">
