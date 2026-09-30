@@ -72,13 +72,14 @@ export default function Midia() {
     return new Date(dateString).toLocaleDateString('pt-BR', options);
   };
 
-  const pageSize = isMobile ? 6 : 10;
+  const reelsPageSize = isMobile ? 6 : 10;
+  const videosPageSize = isMobile ? 6 : 4;
 
   const otherVideos = videos.filter((v) => !(activeItem?.type === 'video' && activeItem.id === v.id));
   const otherReels = reels.filter((r) => !(activeItem?.type === 'reel' && activeItem.key === r.key));
-  const visibleReels = otherReels.slice(0, reelsPage * pageSize);
+  const visibleReels = otherReels.slice(0, reelsPage * reelsPageSize);
   const hasMoreReels = visibleReels.length < otherReels.length;
-  const visibleVideos = otherVideos.slice(0, videosPage * pageSize);
+  const visibleVideos = otherVideos.slice(0, videosPage * videosPageSize);
   const hasMoreVideos = visibleVideos.length < otherVideos.length;
 
   return (
