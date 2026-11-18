@@ -35,7 +35,7 @@ export default function Footer() {
         <div className="footer-logo">
           <Link to="/" onClick={() => window.scrollTo(0,0)}>
             <img
-              src="/logo.png"
+              src="/logo-rodape.png"
               alt="2D Consultores"
               onError={(e) => {
                 e.target.style.display = 'none';
