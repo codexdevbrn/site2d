@@ -1,13 +1,13 @@
 :root {
-    /* Color Palette - Dourado Premium */
-    --bg-dark: #0f1115;
-    --bg-darker: #08090a;
-    --bg-card: rgba(245, 166, 35, 0.04);
-    --bg-card-hover: rgba(245, 166, 35, 0.1);
-    --text-primary: #ffffff;
-    --text-secondary: #a1a1aa;
-    --accent-color: #F5A623; /* Dourado Premium */
-    --accent-glow: rgba(245, 166, 35, 0.15);
+    /* Paleta do Manual da Marca: Grafite, Sinal, Papel, Aço, Névoa */
+    --bg-dark: #0F1217; /* Grafite */
+    --bg-darker: #0A0C10; /* Grafite escurecido */
+    --bg-card: rgba(200, 242, 60, 0.04);
+    --bg-card-hover: rgba(200, 242, 60, 0.1);
+    --text-primary: #F4F2EE; /* Papel */
+    --text-secondary: #A9AFB6; /* Aço clareado para contraste sobre Grafite */
+    --accent-color: #C8F23C; /* Sinal */
+    --accent-glow: rgba(200, 242, 60, 0.15);
     
     /* Layout */
     --nav-height: 80px;
@@ -67,7 +67,7 @@ ul {
 
 .bg-alt {
     background-color: var(--bg-darker);
-    background-image: radial-gradient(circle at 50% 0%, rgba(245, 166, 35, 0.05) 0%, transparent 60%);
+    background-image: radial-gradient(circle at 50% 0%, rgba(200, 242, 60, 0.05) 0%, transparent 60%);
 }
 
 .highlight {
@@ -107,8 +107,8 @@ ul {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(245, 166, 35, 0.3);
-    background-color: #ffb945;
+    box-shadow: 0 6px 20px rgba(200, 242, 60, 0.3);
+    background-color: #D6F765;
 }
 
 .btn-secondary {
@@ -135,12 +135,12 @@ ul {
     height: var(--nav-height);
     z-index: 1000;
     transition: var(--transition-normal);
-    background-color: #000000;
+    background-color: var(--bg-dark);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header.scrolled {
-    background-color: #000000;
+    background-color: var(--bg-dark);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -272,7 +272,7 @@ ul {
         linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         /* Gradiente escuro para garantir leitura perfeita do texto */
-        linear-gradient(to right, rgba(17, 17, 17, 0.98) 0%, rgba(17, 17, 17, 0.8) 100%),
+        linear-gradient(to right, rgba(15, 18, 23, 0.98) 0%, rgba(15, 18, 23, 0.8) 100%),
         /* Imagem de fundo remetendo a consultoria fiscal, dados e gestão */
         url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop') center/cover no-repeat;
     background-size: 30px 30px, 30px 30px, 100% 100%, cover;
@@ -286,8 +286,8 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Brilho sutil com a cor da marca (amarelo) no fundo */
-    background: radial-gradient(circle at 80% 30%, rgba(250, 200, 80, 0.08) 0%, transparent 60%);
+    /* Brilho sutil com a cor da marca (verde Sinal) no fundo */
+    background: radial-gradient(circle at 80% 30%, rgba(200, 242, 60, 0.08) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -362,10 +362,10 @@ ul {
     inset: 0;
     background: linear-gradient(
         to right,
-        rgba(8, 9, 10, 0.97) 0%,
-        rgba(8, 9, 10, 0.90) 40%,
-        rgba(8, 9, 10, 0.45) 70%,
-        rgba(8, 9, 10, 0.10) 100%
+        rgba(10, 12, 16, 0.97) 0%,
+        rgba(10, 12, 16, 0.90) 40%,
+        rgba(10, 12, 16, 0.45) 70%,
+        rgba(10, 12, 16, 0.10) 100%
     );
     z-index: 1;
 }
@@ -660,11 +660,11 @@ ul {
 }
 
 .product-link--new {
-    color: rgba(250, 200, 80, 0.8);
+    color: rgba(200, 242, 60, 0.8);
 }
 
 .product-card:hover .product-link--new {
-    color: rgba(250, 200, 80, 1);
+    color: rgba(200, 242, 60, 1);
 }
 
 .collapsed-content {
@@ -758,8 +758,8 @@ ul {
 }
 
 .tax-reform-card--primary {
-    border-color: rgba(250, 200, 80, 0.2);
-    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(250, 200, 80, 0.02) 100%);
+    border-color: rgba(200, 242, 60, 0.2);
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(200, 242, 60, 0.02) 100%);
 }
 
 .tax-reform-card--secondary {
@@ -1116,7 +1116,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(8, 9, 10, 0.95) 0%, rgba(8, 9, 10, 0.4) 100%);
+    background: linear-gradient(to top, rgba(10, 12, 16, 0.95) 0%, rgba(10, 12, 16, 0.4) 100%);
 }
 
 .segment-card:hover .segment-image {
@@ -1451,7 +1451,8 @@ ul {
     justify-content: center;
 }
 
-.social-icons a {
+.social-icons a,
+.social-icons button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1461,9 +1462,13 @@ ul {
     border-radius: 50%;
     color: var(--text-primary);
     transition: var(--transition-normal);
+    border: none;
+    cursor: pointer;
+    font: inherit;
 }
 
-.social-icons a:hover {
+.social-icons a:hover,
+.social-icons button:hover {
     background-color: var(--accent-color);
     color: var(--bg-dark);
     transform: translateY(-3px);
@@ -1508,9 +1513,9 @@ ul {
     .about-overlay {
         background: linear-gradient(
             to bottom,
-            rgba(8, 9, 10, 0.95) 0%,
-            rgba(8, 9, 10, 0.85) 60%,
-            rgba(8, 9, 10, 0.50) 100%
+            rgba(10, 12, 16, 0.95) 0%,
+            rgba(10, 12, 16, 0.85) 60%,
+            rgba(10, 12, 16, 0.50) 100%
         );
     }
     .footer-container {
@@ -1755,4 +1760,90 @@ ul {
         padding-top: 2rem;
         gap: 4rem;
     }
+}
+
+/* Popup de escolha do perfil do Instagram */
+.ig-popup-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 1rem;
+}
+
+.ig-popup {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background: var(--bg-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.ig-popup h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.ig-popup p {
+    margin: 0 0 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.ig-popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+}
+
+.ig-popup-close:hover {
+    color: var(--text-primary);
+}
+
+.ig-popup-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ig-popup-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 0.9rem 1.1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-align: left;
+    transition: var(--transition-normal);
+}
+
+.ig-popup-option:hover {
+    border-color: var(--accent-color);
+    background-color: var(--bg-card-hover);
+}
+
+.ig-popup-option strong {
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+.ig-popup-option span {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
 }

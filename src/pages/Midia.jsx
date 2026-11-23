@@ -198,7 +198,7 @@ export default function Midia() {
                               borderRadius: '12px',
                               overflow: 'hidden',
                               border: '1px solid rgba(255,255,255,0.08)',
-                              background: 'radial-gradient(circle at 50% 40%, rgba(var(--accent-color-rgb, 200,150,60), 0.18), transparent 60%), linear-gradient(160deg, var(--bg-darker), #000)',
+                              background: 'radial-gradient(circle at 50% 40%, rgba(var(--accent-color-rgb, 200,242,60), 0.18), transparent 60%), linear-gradient(160deg, var(--bg-darker), #000)',
                               transition: 'transform 0.2s ease, border-color 0.2s ease',
                               cursor: 'pointer',
                             }}
